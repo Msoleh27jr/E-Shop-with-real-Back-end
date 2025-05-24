@@ -3,18 +3,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 export const API = import.meta.env.VITE_API_URL;
 
-export const GetPraducData = createAsyncThunk(
-  "todolist/GetPraducData",
-  async () => {
-    try {
-      let response = await fetch(`${API}/Product/get-products`);
-      let data = await response.json();
-      return data.data.products;
-    } catch (error) {
-      console.error(error);
-    }
-  }
-);
+
 
 export const getDataById = createAsyncThunk(
   "todolist/getDataById",
@@ -52,6 +41,30 @@ export const Category = createAsyncThunk("todolist/Category", async () => {
     console.error(error);
   }
 });
+
+export const getBrand = createAsyncThunk("brands/getBrand", async () => {
+  const brandURL = "https://store-api.softclub.tj/Brand";
+  const response = await axios.get(`${brandURL}/get-brands`);
+  return response.data.data;
+});
+
+export const GetPraducData = createAsyncThunk(
+  "getProduct/data",
+  async (params = {}) => {
+    const query = new URLSearchParams();
+
+    if (params.MinPrice != undefined) query.append("MinPrice", params.MinPrice);
+    if (params.MaxPrice != undefined) query.append("MaxPrice", params.MaxPrice);
+    if (params.BrandId != undefined) query.append("BrandId", params.BrandId);
+    if (params.CategoryId != undefined)
+      query.append("CategoryId", params.CategoryId);
+    if (params.ProductName) query.append("ProductName", params.ProductName);
+    const response = await axios.get(
+      `${API}/Product/get-products?${query.toString()}`
+    );
+    return response.data.data.products;
+  }
+);
 
 export const IncreasePro = createAsyncThunk(
   "todolist/IncreasePro",
@@ -162,7 +175,8 @@ export const getProduct = createSlice({
     product: [],
     categories: [],
     productById: [],
-    profileUser : [] ,
+    profileUser: [],
+    brand : [] ,
     wishlist: JSON.parse(localStorage.getItem("wishList")) || [],
   },
   reducers: {
@@ -194,9 +208,12 @@ export const getProduct = createSlice({
     builder.addCase(getDataById.fulfilled, (state, action) => {
       state.productById = action.payload;
     });
-    builder.addCase(profile.fulfilled , (state , action)=> {
-      state.profileUser = action.payload
-    })
+    builder.addCase(profile.fulfilled, (state, action) => {
+      state.profileUser = action.payload;
+    });
+     builder.addCase(getBrand.fulfilled, (state, action) => {
+      state.brand = action.payload;
+    });
   },
 });
 

@@ -51,7 +51,7 @@ const Home = () => {
 
   function getTimeLeft() {
     const now = new Date().getTime();
-    const distance = new Date("2025-05-25T23:59:59").getTime() - now;
+    const distance = new Date("2025-05-27T23:59:59").getTime() - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
@@ -314,7 +314,10 @@ const Home = () => {
         <div className="flex md:gap-[60px] overflow-x-auto whitespace-nowrap md:max-w-[1700px] m-auto md:w-[100%] w-[90%] px-2 md:flex-wrap">
           {data.map((e) => {
             return (
-              <div key={e.id} className="md:w-[350px] w-[90%] h-[420px] flex flex-col md:gap-2 md:mx-0 mx-5 relative shrink-0">
+              <div
+                key={e.id}
+                className="md:w-[350px] w-[90%] h-[420px] flex flex-col md:gap-2 md:mx-0 mx-5 relative shrink-0"
+              >
                 <img
                   className="w-full h-[300px]"
                   src={`${API}/images/${e.image}`}

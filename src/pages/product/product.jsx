@@ -5,18 +5,13 @@ import {
   ProductGet,
   setWishList,
 } from "../../features/getProducts/GetProduct";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 import { useDispatch, useSelector } from "react-redux";
 import { API } from "../../features/getProducts/GetProduct";
 import star from "../home/img/Frame 566.png";
 import {} from "../../features/getProducts/GetProduct";
 import { Link } from "react-router";
+import Filter from "../../shared/filter/filter";
 
 const Product = () => {
   const data = useSelector((state) => state.todolist.data);
@@ -35,17 +30,9 @@ const Product = () => {
           Home
           <span className="text-black font-bold"> / Explore Our Products</span>
         </span>
-        <section className="flex justify-between">
+        <section className="flex justify-between my-20">
           <div className="w-[20%]">
-            <Accordion type="single" collapsible>
-              <AccordionItem value="item-1">
-                <AccordionTrigger className="text-xl">Category</AccordionTrigger>
-                <AccordionContent className="text-xl"><button>All products</button></AccordionContent>
-                <AccordionContent className="text-xl"><button>All products</button></AccordionContent>
-                <AccordionContent className="text-xl"><button>All products</button></AccordionContent>
-                <AccordionContent className="text-xl"><button>All products</button></AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <Filter/>
           </div>
           <div className="w-[75%] flex flex-col items-center">
             <div className="flex flex-wrap justify-between">
