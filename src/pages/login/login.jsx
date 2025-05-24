@@ -25,7 +25,7 @@ const Login = () => {
     }
   }
   return (
-    <div className="h-[900px] flex justify-center items-center">
+    <div className="md:h-[900px] h-[500px] flex justify-center items-center">
       <section className="max-w-[1700px] m-auto flex flex-col md:w-[500px] gap-3 w-[90%]">
         <h2 className="md:text-5xl text-3xl">Log in to Exclusive</h2>
         <p className="text-2xl">Enter your details below</p>
