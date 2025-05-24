@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { z } from "zod";
-import axios from 'axios' 
+import axios from "axios";
 import { API } from "../../features/getProducts/GetProduct";
 import { Link } from "react-router";
 
@@ -14,7 +14,7 @@ const phoneMachenic = z.string().max(9, { message: "Not more 9" });
 
 const SignUp = () => {
   const [inpName, setInpName] = useState("");
-  const [openLogin , setOpenLogin] = useState("")
+  const [openLogin, setOpenLogin] = useState("");
   const [inpEmail, setInpEmail] = useState("");
   const [inpPhone, setInpPhone] = useState("");
   const [inpPassword, setInpPassword] = useState("");
@@ -44,18 +44,20 @@ const SignUp = () => {
     } else {
       try {
         let newUser = {
-        userName: inpName,
-        phoneNumber: inpPhone,
-        email: inpEmail,
-        password: inpPassword,
-        confirmPassword: inpCheckPass,
-      };
-        await axios.post(`${API}/Account/register` , newUser)
-        setOpenLogin("Login")
-        
+          userName: inpName,
+          phoneNumber: inpPhone,
+          email: inpEmail,
+          password: inpPassword,
+          confirmPassword: inpCheckPass,
+        };
+        await axios.post(`${API}/Account/register`, newUser);
+        setOpenLogin("Login");
+        window.location = "login";
       } catch (error) {
         console.error(error);
-        setOpenLogin("here is something Incorrect or this account has been created")
+        setOpenLogin(
+          "here is something Incorrect or this account has been created"
+        );
       }
     }
   }
@@ -106,12 +108,22 @@ const SignUp = () => {
         <button
           className="bg-[#DB4444] py-3 rounded-[5px] text-[18px] text-white"
           onClick={funAdd}
-        >Create Account
+        >
+          Create Account
         </button>
-        {
-          openLogin == "Login" ? <Link to={"/login"}><p className="text-green-700">click here for Login</p></Link> : <p className="text-red-700">{openLogin}</p>
-        }
-        <p className="text-[18px]">Already have account? <Link to={"/login"} className="font-bold border-b-1 text-green-500">Login</Link></p>
+        {openLogin == "Login" ? (
+          <Link to={"/login"}>
+            <p className="text-green-700">click here for Login</p>
+          </Link>
+        ) : (
+          <p className="text-red-700">{openLogin}</p>
+        )}
+        <p className="text-[18px]">
+          Already have account?{" "}
+          <Link to={"/login"} className="font-bold border-b-1 text-green-500">
+            Login
+          </Link>
+        </p>
       </section>
     </div>
   );

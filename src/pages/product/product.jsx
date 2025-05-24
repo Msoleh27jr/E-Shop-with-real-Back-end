@@ -30,11 +30,11 @@ const Product = () => {
           Home
           <span className="text-black font-bold"> / Explore Our Products</span>
         </span>
-        <section className="flex justify-between my-20">
-          <div className="w-[20%]">
+        <section className="flex justify-between my-20 md:flex-row flex-col items-center md:items-start">
+          <div className="md:w-[20%] w-[90%]">
             <Filter/>
           </div>
-          <div className="w-[75%] flex flex-col items-center">
+          <div className="md:w-[75%] flex flex-col items-center">
             <div className="flex flex-wrap justify-between">
               {data?.map((e) => {
                 return (

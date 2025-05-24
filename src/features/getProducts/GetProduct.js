@@ -3,8 +3,6 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 export const API = import.meta.env.VITE_API_URL;
 
-
-
 export const getDataById = createAsyncThunk(
   "todolist/getDataById",
   async (id) => {
@@ -168,6 +166,21 @@ export const postProduct = createAsyncThunk(
   }
 );
 
+export const editProfile = createAsyncThunk(
+  "todolist/editProfile",
+  async (elem , {dispatch}) => {
+    const token = localStorage.getItem("accaunt");
+    try {
+      await axios.put(`${API}/UserProfile/update-user-profile`, elem , {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(profile())
+    } catch (error) {
+      console.error(error);
+    }
+  }
+);
+
 export const getProduct = createSlice({
   name: "todolist",
   initialState: {
@@ -176,7 +189,7 @@ export const getProduct = createSlice({
     categories: [],
     productById: [],
     profileUser: [],
-    brand : [] ,
+    brand: [],
     wishlist: JSON.parse(localStorage.getItem("wishList")) || [],
   },
   reducers: {
@@ -211,7 +224,7 @@ export const getProduct = createSlice({
     builder.addCase(profile.fulfilled, (state, action) => {
       state.profileUser = action.payload;
     });
-     builder.addCase(getBrand.fulfilled, (state, action) => {
+    builder.addCase(getBrand.fulfilled, (state, action) => {
       state.brand = action.payload;
     });
   },

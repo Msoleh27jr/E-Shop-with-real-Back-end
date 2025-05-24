@@ -234,7 +234,7 @@ const Home = () => {
             modules={[Pagination]}
             className="mySwiper"
           >
-            {categories.map((e) => {
+            {categories?.map((e) => {
               return (
                 <SwiperSlide
                   key={e.id}

@@ -2,22 +2,26 @@ import axios from "axios";
 import React, { useState } from "react";
 
 const Login = () => {
-  const [userName , setUserName] = useState('')
-  const [password , setPassword] = useState('')
-  const [errorLogin , setErrorLogin] = useState('')
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorLogin, setErrorLogin] = useState("");
   async function funLogin() {
     let loginUser = {
       userName: userName,
       password: password,
     };
     try {
-     let {data} = await axios.post("https://store-api.softclub.tj/Account/login" , loginUser)
-      setErrorLogin(true)
-      localStorage.setItem("accaunt" , `${data.data}`)
+      let { data } = await axios.post(
+        "https://store-api.softclub.tj/Account/login",
+        loginUser
+      );
+      setErrorLogin(true);
+      localStorage.setItem("accaunt", `${data.data}`);
+      window.location = "/"
       console.log(data.data);
     } catch (error) {
       console.error(error);
-      setErrorLogin('here something incorrect please check again')
+      setErrorLogin("here something incorrect please check again");
     }
   }
   return (
@@ -30,14 +34,14 @@ const Login = () => {
           className="border-1 py-2 px-3 rounded-[5px]"
           placeholder="Name"
           value={userName}
-          onChange={(e)=> setUserName(e.target.value)}
+          onChange={(e) => setUserName(e.target.value)}
         />
         <input
           type="password"
           className="border-1 py-2 px-3 rounded-[5px]"
           placeholder="Password"
-          value={password} 
-          onChange={(e)=> setPassword(e.target.value)}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button
           onClick={() => alert("Maram Namedonm")}
@@ -47,11 +51,17 @@ const Login = () => {
         </button>
         <button
           className="bg-[#DB4444] py-3 rounded-[5px] text-[18px] text-white"
-          onClick={funLogin}
+          onClick={() => {
+            funLogin();
+          }}
         >
           Log In
         </button>
-        {errorLogin == true ? <p className="text-green-600 text-[18px]">Login Successfully</p> : <p className="text-red-600 text-[16px]">{errorLogin}</p>}
+        {errorLogin == true ? (
+          <p className="text-green-600 text-[18px]">Login Successfully</p>
+        ) : (
+          <p className="text-red-600 text-[16px]">{errorLogin}</p>
+        )}
       </section>
     </div>
   );

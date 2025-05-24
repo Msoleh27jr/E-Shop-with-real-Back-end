@@ -4,10 +4,14 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
 
 import { useDispatch, useSelector } from "react-redux";
-import { Category, getBrand, GetPraducData } from "../../features/getProducts/GetProduct";
+import {
+  Category,
+  getBrand,
+  GetPraducData,
+} from "../../features/getProducts/GetProduct";
 
 const Filter = () => {
   const category = useSelector((state) => state.todolist.categories);
@@ -71,7 +75,12 @@ const Filter = () => {
                 className={`text-[#DB4444] text-[18px] font-medium cursor-pointer ${
                   selectedCategory === null ? "underline" : ""
                 }`}
-                onClick={() => setSelectedCategory(null)}
+                onClick={() => {
+                  setSelectedCategory(null);
+                  setSelectedBrand(null);
+                  setMax(220000);
+                  setMin(170);
+                }}
               >
                 All Products
               </div>
