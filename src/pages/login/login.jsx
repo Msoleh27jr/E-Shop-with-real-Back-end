@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "sonner";
 
 const Login = () => {
   const [userName, setUserName] = useState("");
@@ -17,7 +18,8 @@ const Login = () => {
       );
       setErrorLogin(true);
       localStorage.setItem("accaunt", `${data.data}`);
-      window.location = "/"
+      toast.success("login Successfully")
+      window.location = "/";
       console.log(data.data);
     } catch (error) {
       console.error(error);
@@ -25,10 +27,10 @@ const Login = () => {
     }
   }
   return (
-    <div className="md:h-[900px] h-[500px] flex justify-center items-center">
+    <div className="md:h-[900px] h-[600px] flex justify-center items-center">
       <section className="max-w-[1700px] m-auto flex flex-col md:w-[500px] gap-3 w-[90%]">
-        <h2 className="md:text-5xl text-3xl">Log in to Exclusive</h2>
-        <p className="text-2xl">Enter your details below</p>
+        <h2 className="md:text-5xl text-2xl">Log in to Exclusive</h2>
+        <p className="md:text-2xl">Enter your details below</p>
         <input
           type="text"
           className="border-1 py-2 px-3 rounded-[5px]"

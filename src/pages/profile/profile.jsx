@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { API, editProfile, profile } from "../../features/getProducts/GetProduct";
+import {
+  API,
+  editProfile,
+  profile,
+} from "../../features/getProducts/GetProduct";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -14,33 +18,34 @@ import {
 } from "@/components/ui/alert-dialog";
 
 const Profile = () => {
-  const [img , setImg] = useState(null);
+  const [img, setImg] = useState(null);
   const [Name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
+  const [country , setCountry] = useState("")
   const dispatch = useDispatch();
   const profileUser = useSelector((state) => state.todolist.profileUser);
 
   const editUser = (e) => {
     e.preventDefault();
-    const formData = new FormData()
+    const formData = new FormData();
     console.log(img);
-    
-    formData.append("Image" , img[0])
-    formData.append("FirstName" , Name)
-    formData.append("LastName" , surname)
-    formData.append("Email" , email)
-    formData.append("PhoneNumber" , phone)
-    formData.append("Dob" , dob)
-    dispatch(editProfile(formData))
-    setImg(null)
-    setName('')
-    setSurname('')
-    setEmail('')
-    setPhone('')
-    setDob('')
+
+    formData.append("Image", img[0]);
+    formData.append("FirstName", Name);
+    formData.append("LastName", surname);
+    formData.append("Email", email);
+    formData.append("PhoneNumber", `+${country} ${phone}`);
+    formData.append("Dob", dob);
+    dispatch(editProfile(formData));
+    setImg(null);
+    setName("");
+    setSurname("");
+    setEmail("");
+    setPhone("");
+    setDob("");
   };
   console.log(profileUser);
 
@@ -91,7 +96,7 @@ const Profile = () => {
                         className="outline-0 w-[100%] text-[16px]"
                         placeholder="Name"
                         value={Name}
-                        onChange={(e)=> setName(e.target.value)}
+                        onChange={(e) => setName(e.target.value)}
                       />
                     </fieldset>
                     {/* edit Surname */}
@@ -102,7 +107,7 @@ const Profile = () => {
                         className="outline-0 w-[100%] text-[16px]"
                         placeholder="Surname"
                         value={surname}
-                        onChange={(e)=> setSurname(e.target.value)}
+                        onChange={(e) => setSurname(e.target.value)}
                       />
                     </fieldset>
                     {/* email */}
@@ -113,19 +118,34 @@ const Profile = () => {
                         className="outline-0 w-[100%] text-[16px]"
                         placeholder="Email"
                         value={email}
-                        onChange={(e)=> setEmail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                       />
                     </fieldset>
                     {/* Phone Num */}
                     <fieldset className="border-2 my-3 border-[#acacac] rounded-[5px] p-2">
                       <legend className="px-2">Phone Number</legend>
-                      <input
-                        type="number"
-                        className="outline-0 w-[100%] text-[16px]"
-                        placeholder="Number"
-                        value={phone}
-                        onChange={(e)=> setPhone(e.target.value)}
-                      />
+                      <div className="flex items-center gap-3">
+                        <select className="outline-0" value={country} onChange={(e)=> setCountry(e.target.value)}>
+                          <option value="992">🇹🇯 +992</option>
+                          <option value="1">us +1</option>
+                          <option value="44">🇬🇧 +44</option>
+                          <option value="86">🇨🇳 +86</option>
+                          <option value="7">🇷🇺 +7</option>
+                          <option value="91">🇮🇳 +91</option>
+                          <option value="49">🇩🇪 +49</option>
+                          <option value="33">🇫🇷 +33</option>
+                          <option value="81">🇯🇵 +81</option>
+                          <option value="82">🇰🇷 +82</option>
+                          <option value="55">🇧🇷 +55</option>
+                        </select>
+                        <input
+                          type="number"
+                          className="outline-0 w-[100%] text-[16px]"
+                          placeholder="Number"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                        />
+                      </div>
                     </fieldset>
                     <fieldset className="border-2 my-3 border-[#acacac] rounded-[5px] p-2">
                       <legend className="px-2">Day Of Birth</legend>
@@ -133,7 +153,7 @@ const Profile = () => {
                         type="date"
                         className="outline-0 w-[100%] text-[16px]"
                         value={dob}
-                        onChange={(e)=> setDob(e.target.value)}
+                        onChange={(e) => setDob(e.target.value)}
                       />
                     </fieldset>
                   </AlertDialogDescription>

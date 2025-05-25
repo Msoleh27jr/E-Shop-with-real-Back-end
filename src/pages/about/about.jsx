@@ -7,9 +7,9 @@ import worker from "./img/Frame 874.png";
 import worker2 from "./img/Frame 875.png";
 import worker3 from "./img/Frame 876.png";
 import social from "./img/Frame 881.png";
-import deliver from '../home/img/Services (2).png'
-import servers from '../home/img/Services.png'
-import garantia from '../home/img/Services (1).png'
+import deliver from "../home/img/Services (2).png";
+import servers from "../home/img/Services.png";
+import garantia from "../home/img/Services (1).png";
 
 const About = () => {
   return (

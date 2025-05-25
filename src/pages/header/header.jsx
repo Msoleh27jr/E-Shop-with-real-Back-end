@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/sheet";
 import { useDispatch, useSelector } from "react-redux";
 import { ProductGet } from "../../features/getProducts/GetProduct";
+import { toast } from "sonner";
 
 const Header = () => {
   const like = useSelector((state) => state.todolist.wishlist);
@@ -71,7 +72,9 @@ const Header = () => {
           </Sheet>
           <h2 className="text-[20px] font-bold">Exclusive</h2>
         </div>
-        <img className="hidden md:block" src={Logo} alt="" />
+        <Link to={"/"}>
+          <img className="hidden md:block" src={Logo} alt="" />
+        </Link>
         <ul className="md:flex text-[20px] gap-9 hidden">
           <Link to={"/"}>
             <li>Home</li>
@@ -169,7 +172,7 @@ const Header = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="size-6 bg-red-600 rounded-2xl w-[30px] h-[30px] p-1"
+                    className="size-6 bg-red-600 rounded-2xl w-[30px] h-[30px] p-1 text-white"
                   >
                     <path
                       strokeLinecap="round"
@@ -186,7 +189,7 @@ const Header = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="size-6 bg-green-600 rounded-2xl w-[30px] h-[30px] p-1"
+                    className="size-6 bg-green-600 rounded-2xl w-[30px] h-[30px] p-1 text-white"
                   >
                     <path
                       strokeLinecap="round"
@@ -257,6 +260,7 @@ const Header = () => {
                   onClick={() => {
                     localStorage.setItem("accaunt", ""),
                       localStorage.setItem("wishList", JSON.stringify([]));
+                    toast.success("logout Successfully");
                     window.location = "/signup";
                   }}
                 >

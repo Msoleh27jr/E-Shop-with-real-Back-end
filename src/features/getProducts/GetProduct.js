@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 export const API = import.meta.env.VITE_API_URL;
+import { toast } from 'sonner';
 
 export const getDataById = createAsyncThunk(
   "todolist/getDataById",
@@ -77,6 +78,7 @@ export const IncreasePro = createAsyncThunk(
         }
       );
       dispatch(ProductGet());
+      toast.success("Product quantity is Increase")
     } catch (error) {
       console.error(error);
     }
@@ -96,8 +98,10 @@ export const DicrimentPro = createAsyncThunk(
         }
       );
       dispatch(ProductGet());
+      toast.success("Product quantity is dicriment")
     } catch (error) {
       console.error(error);
+      toast.error("here is something wrong !")
     }
   }
 );
@@ -110,8 +114,10 @@ export const DeletePro = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(ProductGet());
+      toast.success("Product Deleted")
     } catch (error) {
       console.error(error);
+      toast.error("it something wrong")
     }
   }
 );
@@ -125,8 +131,27 @@ export const ClearePro = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(ProductGet());
+      toast.success("All Products Cleared Successfully")
     } catch (error) {
       console.error(error);
+      toast.error("You don't have Products")
+    }
+  }
+);
+
+export const Order = createAsyncThunk(
+  "todolist/ClearePro",
+  async (state, { dispatch }) => {
+    try {
+      const token = localStorage.getItem("accaunt");
+      await axios.delete(`${API}/Cart/clear-cart`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(ProductGet());
+      toast.success("Payment was successfully")
+    } catch (error) {
+      console.error(error);
+      toast.error("You don't have Products")
     }
   }
 );
@@ -144,6 +169,7 @@ export const profile = createAsyncThunk("todolist/profile", async () => {
     return data.data;
   } catch (error) {
     console.error(error);
+    toast.error("First Login")
   }
 });
 
@@ -159,9 +185,11 @@ export const postProduct = createAsyncThunk(
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+      toast.success("Added in your cart")
       dispatch(ProductGet());
     } catch (error) {
       console.error(error);
+      toast.error("You have this porduct !")
     }
   }
 );
@@ -175,8 +203,10 @@ export const editProfile = createAsyncThunk(
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(profile())
+      toast.success("Edit successfully")
     } catch (error) {
       console.error(error);
+      toast.error("You should requared all inputs !")
     }
   }
 );
@@ -199,8 +229,10 @@ export const getProduct = createSlice({
       let isHere = state.wishlist.find((e) => e.id == obj.id);
       if (isHere) {
         state.wishlist = state.wishlist.filter((e) => e.id != obj.id);
+        toast.error("Removed from Wish List")
       } else {
         state.wishlist.push(obj);
+        toast.success("Added to Wish List")
       }
       localStorage.setItem("wishList", JSON.stringify(state.wishlist));
     },

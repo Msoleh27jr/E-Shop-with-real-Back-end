@@ -3,6 +3,7 @@ import { z } from "zod";
 import axios from "axios";
 import { API } from "../../features/getProducts/GetProduct";
 import { Link } from "react-router";
+import { toast } from "sonner";
 
 const nameMachenic = z
   .string()
@@ -52,6 +53,7 @@ const SignUp = () => {
         };
         await axios.post(`${API}/Account/register`, newUser);
         setOpenLogin("Login");
+        toast.success("Signup Successfilly")
         window.location = "login";
       } catch (error) {
         console.error(error);
@@ -62,10 +64,10 @@ const SignUp = () => {
     }
   }
   return (
-    <div className="md:h-[900px] h-[500px] flex justify-center items-center">
+    <div className="md:h-[900px] h-[600px] flex justify-center items-center">
       <section className="max-w-[1700px] m-auto flex flex-col md:w-[500px] gap-3 w-[90%]">
-        <h2 className="md:text-5xl text-3xl">Create an account</h2>
-        <p className="text-2xl">Enter your details below</p>
+        <h2 className="md:text-5xl text-2xl">Create an account</h2>
+        <p className="md:text-2xl">Enter your details below</p>
         <input
           value={inpName}
           onChange={(e) => setInpName(e.target.value)}

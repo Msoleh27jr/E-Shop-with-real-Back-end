@@ -89,7 +89,7 @@ const ProductBoxs = () => {
                         console.log(e);
                         
                       }}
-                      style={{backgroundColor : like?.find((el)=> e.id == el.id) ? "green" : "white"}}
+                      style={{backgroundColor : like?.find((el)=> e.id == el.id) ? "green" : "white", color : like?.find((el)=> e.id == el.id) ? "white" : "black"}}
                     >
                       <path
                         strokeLinecap="round"
