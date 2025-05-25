@@ -85,51 +85,15 @@ const Home = () => {
             <img src={searchBtn} alt="" />
           </div>
           <div className="flex md:flex-col flex-wrap items-start gap-5 text-[20px] md:my-0 my-5">
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Woman’s Fashion
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Men’s Fashion
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Electronics
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Home & Lifestyle
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Medicine
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Sports & Outdoor
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Baby’s & Toys
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Groceries & Pets
-              </button>
-            </Link>
-            <Link to={"product"}>
-              <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
-                Health & Beauty
-              </button>
-            </Link>
+            {categories?.map((e) => {
+              return (
+                <Link to={"product"}>
+                  <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
+                    {e.categoryName}
+                  </button>
+                </Link>
+              );
+            })}
           </div>
         </aside>
         <aside className="md:w-[80%] bg-black">

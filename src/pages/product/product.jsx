@@ -12,6 +12,7 @@ import star from "../home/img/Frame 566.png";
 import {} from "../../features/getProducts/GetProduct";
 import { Link } from "react-router";
 import Filter from "../../shared/filter/filter";
+import { toast } from "sonner";
 
 const Product = () => {
   const data = useSelector((state) => state.todolist.data);
@@ -32,15 +33,15 @@ const Product = () => {
         </span>
         <section className="flex justify-between my-20 md:flex-row flex-col items-center md:items-start">
           <div className="md:w-[20%] w-[90%]">
-            <Filter/>
+            <Filter />
           </div>
-          <div className="md:w-[75%] flex flex-col items-center">
-            <div className="flex flex-wrap justify-between">
+          <div className="md:w-[75%]">
+            <div className="flex flex-wrap gap-6">
               {data?.map((e) => {
                 return (
                   <div
                     key={e.id}
-                    className="md:w-[31%] w-[90%] h-[420px] flex flex-col md:gap-2 md:mx-0 mx-5 relative shrink-0 mb-[3%]"
+                    className="md:w-[300px] w-[90%] h-[420px] flex flex-col md:gap-2 md:mx-0 mx-5 relative shrink-0 mb-[3%]"
                   >
                     <img
                       className="w-full h-[300px]"
@@ -124,12 +125,14 @@ const Product = () => {
                 );
               })}
             </div>
-            <button
-              onClick={() => alert("That's All")}
-              className="bg-[#DB4444] text-white py-3 px-8 font-bold rounded-[5px]"
-            >
-              More Product
-            </button>
+            <div className="flex justify-center">
+              <button
+                onClick={() => toast.success("That's All")}
+                className="bg-[#DB4444] text-white py-3 px-8 font-bold rounded-[5px]"
+              >
+                More Product
+              </button>
+            </div>
           </div>
         </section>
       </section>
