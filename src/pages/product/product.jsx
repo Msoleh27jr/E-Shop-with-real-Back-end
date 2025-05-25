@@ -25,7 +25,7 @@ const Product = () => {
     dispatch(GetPraducData());
   }, [dispatch]);
   return (
-    <div className="max-w-[1700px] m-auto my-15">
+    <div className="md:max-w-[1700px] m-auto my-15 w-[90%]">
       <section>
         <span className="text-[18px] text-gray-500">
           Home
