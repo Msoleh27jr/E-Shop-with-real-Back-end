@@ -246,7 +246,7 @@ const Header = () => {
                     localStorage.setItem("accaunt", ""),
                       localStorage.setItem("wishList", JSON.stringify([]));
                     toast.success("logout Successfully");
-                    window.location = "/signUp";
+                    window.location = "/";
                   }}
                 >
                   <svg
