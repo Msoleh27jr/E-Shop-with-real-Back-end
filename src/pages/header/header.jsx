@@ -165,7 +165,7 @@ const Header = () => {
           <DropdownMenu>
             <p onClick={forCart}>
               {cart == "" ? (
-                <Link to={"signup"}>
+                <Link to={"signUp"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -261,7 +261,7 @@ const Header = () => {
                     localStorage.setItem("accaunt", ""),
                       localStorage.setItem("wishList", JSON.stringify([]));
                     toast.success("logout Successfully");
-                    window.location = "/signup";
+                    window.location = "/signUp";
                   }}
                 >
                   <svg

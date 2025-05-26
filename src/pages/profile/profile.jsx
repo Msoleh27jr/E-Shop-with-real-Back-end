@@ -37,7 +37,7 @@ const Profile = () => {
     formData.append("FirstName", Name);
     formData.append("LastName", surname);
     formData.append("Email", email);
-    formData.append("PhoneNumber", `+${country} ${phone}`);
+    formData.append("PhoneNumber", `+${country == "" ? "992" : country} ${phone}`);
     formData.append("Dob", dob);
     dispatch(editProfile(formData));
     setImg(null);
@@ -127,7 +127,7 @@ const Profile = () => {
                       <div className="flex items-center gap-3">
                         <select className="outline-0" value={country} onChange={(e)=> setCountry(e.target.value)}>
                           <option value="992">🇹🇯 +992</option>
-                          <option value="1">us +1</option>
+                          <option value="1">🇺🇸 +1</option>
                           <option value="44">🇬🇧 +44</option>
                           <option value="86">🇨🇳 +86</option>
                           <option value="7">🇷🇺 +7</option>
