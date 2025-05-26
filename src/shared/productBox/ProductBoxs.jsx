@@ -119,9 +119,9 @@ const ProductBoxs = () => {
                       </svg>
                     </Link>
                   </div>
-                  {cartToken == "" ? (
+                  {cartToken == "" || cartToken == null ? (
                     <button className="w-[100%] bg-black text-white hidden group-hover:block py-2">
-                      <Link to={"signup"}>Add To Cart</Link>
+                      <Link to={"/signup"}>Add To Cart</Link>
                     </button>
                   ) : (
                     <button

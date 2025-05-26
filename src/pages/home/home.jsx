@@ -85,9 +85,9 @@ const Home = () => {
             <img src={searchBtn} alt="" />
           </div>
           <div className="flex md:flex-col flex-wrap items-start gap-5 text-[20px] md:my-0 my-5">
-            {categories?.map((e) => {
+            {categories?.map((e, elem) => {
               return (
-                <Link to={"product"}>
+                <Link key={elem} to={"product"}>
                   <button className="bg-[#F5F5F5] py-2 px-3 rounded-[5px] md:py-0 md:bg-transparent">
                     {e.categoryName}
                   </button>
@@ -336,7 +336,7 @@ const Home = () => {
                       />
                     </svg>
                   </div>
-                  {cartToken == "" ? (
+                  {cartToken == "" || cartToken == null ? (
                     <button className="w-[100%] bg-black text-white hidden group-hover:block py-2">
                       <Link to={"signup"}>Add To Cart</Link>
                     </button>
