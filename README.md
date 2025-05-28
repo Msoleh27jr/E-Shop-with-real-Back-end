@@ -18,7 +18,7 @@ This project is a modern internet shop call fast cart built with a real backend.
 ## 📁 Project Structure
 
 - **Frontend**: React
-- **Backend**: C#
+- **Backend**: https://store-api.softclub.tj
 
 ## 🚀 Getting Started
 ![image](https://github.com/user-attachments/assets/0d48906b-0f13-47c0-93a0-f12848d05fbf)
