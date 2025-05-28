@@ -1,10 +1,10 @@
-# 🛍 Internet Shop
+# 🛍 Fast Cart
 
-This project is a modern internet shop (e-commerce website) built with a real backend. It allows users to browse products, view detailed information, add items to the cart, and place orders securely. The system includes user authentication, product management, and a dynamic shopping experience.
+This project is a modern internet shop call fast cart built with a real backend. It allows users to browse products and also you can login or signup, view detailed information, add items to the cart, and place orders securely. The system includes user authentication, product management, and a dynamic shopping experience.
 
 ## 🔗 Live Demo
 
-👉 [Click here to watch]([https://your-live-site-link.com](https://e-shop-sand-three.vercel.app/))  
+👉 [Click here to watch]([https://e-shop-sand-three.vercel.app/])  
 *Replace this link with your deployed site URL.*
 
 ## ✨ Features
