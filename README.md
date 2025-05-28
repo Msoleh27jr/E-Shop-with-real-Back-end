@@ -19,7 +19,6 @@ This project is a modern internet shop call fast cart built with a real backend.
 
 - **Frontend**: React
 - **Backend**: C#
-- **Database**: Swagger 
 
 ## 🚀 Getting Started
 ![image](https://github.com/user-attachments/assets/0d48906b-0f13-47c0-93a0-f12848d05fbf)
