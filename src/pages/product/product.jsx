@@ -4,12 +4,12 @@ import {
   postProduct,
   ProductGet,
   setWishList,
-} from "../../features/getProducts/GetProduct";
+} from "../../features/getProducts/getProduct";
 
 import { useDispatch, useSelector } from "react-redux";
-import { API } from "../../features/getProducts/GetProduct";
+import { API } from "../../features/getProducts/getProduct";
 import star from "../home/img/Frame 566.png";
-import {} from "../../features/getProducts/GetProduct";
+import {} from "../../features/getProducts/getProduct";
 import { Link } from "react-router";
 import Filter from "../../shared/filter/filter";
 import { toast } from "sonner";

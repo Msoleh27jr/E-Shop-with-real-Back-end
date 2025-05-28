@@ -15,7 +15,7 @@ const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import { API } from "../../features/getProducts/GetProduct";
+import { API } from "../../features/getProducts/getProduct";
 
 const BoxImg = ({ imgBox }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { z } from "zod";
 import axios from "axios";
-import { API } from "../../features/getProducts/GetProduct";
+import { API } from "../../features/getProducts/getProduct";
 import { Link } from "react-router";
 import { toast } from "sonner";
 

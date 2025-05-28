@@ -4,7 +4,7 @@ import {
   Category,
   GetPraducData,
   postProduct,
-} from "../../features/getProducts/GetProduct";
+} from "../../features/getProducts/getProduct";
 import hero from "./img/hero_endframe__cvklg0xk3w6e_large 2.png";
 import appleIcon from "./img/1200px-Apple_gray_logo 1.png";
 import arrowRight from "./img/icons arrow-right.png";
@@ -29,11 +29,11 @@ import "swiper/css/pagination";
 import "./styles.css";
 import { Pagination } from "swiper/modules";
 
-import { API } from "../../features/getProducts/GetProduct";
+import { API } from "../../features/getProducts/getProduct";
 
 // import required modules
-import Box from "../../shared/boxsForFirstPage/Box";
-import ProductBoxs from "../../shared/productBox/ProductBoxs";
+import Box from "../../shared/boxsForFirstPage/box";
+import ProductBoxs from "../../shared/productBox/productBoxs";
 const Home = () => {
   const data = useSelector((state) => state.todolist.data);
   const categories = useSelector((stars) => stars.todolist.categories);

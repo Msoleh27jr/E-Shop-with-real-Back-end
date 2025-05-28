@@ -21,7 +21,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useDispatch, useSelector } from "react-redux";
-import { ProductGet } from "../../features/getProducts/GetProduct";
+import { ProductGet } from "../../features/getProducts/getProduct";
 import { toast } from "sonner";
 
 const Header = () => {

@@ -6,7 +6,7 @@ import {
   DicrimentPro,
   IncreasePro,
   ProductGet,
-} from "../../features/getProducts/GetProduct";
+} from "../../features/getProducts/getProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router";
 

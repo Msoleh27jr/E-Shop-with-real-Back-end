@@ -7,9 +7,9 @@ import {
   GetPraducData,
   postProduct,
   setWishList,
-} from "../../features/getProducts/GetProduct";
+} from "../../features/getProducts/getProduct";
 import stars from "../home/img/Frame 566.png";
-import ProductBoxs from "../../shared/productBox/ProductBoxs";
+import ProductBoxs from "../../shared/productBox/productBoxs";
 import BoxImg from "../../shared/boxsForImages/boxImg";
 
 const AboutProduct = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { API, Order, ProductGet } from "../../features/getProducts/GetProduct";
+import { API, Order, ProductGet } from "../../features/getProducts/getProduct";
 import cartBank from "./img/Frame 834.png";
 
 const CheckOut = () => {

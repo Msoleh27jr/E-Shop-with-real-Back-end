@@ -13,8 +13,8 @@ import {
   GetPraducData,
   postProduct,
   setWishList,
-} from "../../features/getProducts/GetProduct";
-import { API } from "./../../features/getProducts/GetProduct";
+} from "../../features/getProducts/getProduct";
+import { API } from "../../features/getProducts/getProduct";
 import { Link } from "react-router";
 
 const ProductBoxs = () => {

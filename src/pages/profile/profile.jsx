@@ -4,7 +4,7 @@ import {
   API,
   editProfile,
   profile,
-} from "../../features/getProducts/GetProduct";
+} from "../../features/getProducts/getProduct";
 import {
   AlertDialog,
   AlertDialogAction,

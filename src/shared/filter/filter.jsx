@@ -11,7 +11,7 @@ import {
   Category,
   getBrand,
   GetPraducData,
-} from "../../features/getProducts/GetProduct";
+} from "../../features/getProducts/getProduct";
 
 const Filter = () => {
   const category = useSelector((state) => state.todolist.categories);

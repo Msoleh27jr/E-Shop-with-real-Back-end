@@ -2,7 +2,7 @@ import { lazy } from "react";
 
 export const Layout = lazy(()=> import('../layout/layout.jsx'))
 export const Home = lazy(()=> import('../home/home.jsx'))
-export const Contact = lazy(()=> import('../Contact/contact.jsx'))
+export const Contact = lazy(()=> import('../contact/contact.jsx'))
 export const Login = lazy(()=> import('../login/login.jsx'))
 export const SignUp = lazy(()=> import('../signUp/signUp.jsx'))
 export const Product = lazy(()=> import('../product/product.jsx'))
