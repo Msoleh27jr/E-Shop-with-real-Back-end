@@ -4,7 +4,7 @@ This project is a modern internet shop call fast cart built with a real backend.
 
 ## 🔗 Live Demo
 
-👉 [Click here to watch]([https://e-shop-sand-three.vercel.app/])  
+👉 [Click here to watch](https://e-shop-sand-three.vercel.app/)  
 *Replace this link with your deployed site URL.*
 
 ## ✨ Features
