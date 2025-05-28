@@ -17,8 +17,8 @@ This project is a modern internet shop call fast cart built with a real backend.
 
 ## 📁 Project Structure
 
-- **Frontend**: React (or specify your framework)
-- **Backend**: Node.js / Express / (your backend stack)
-- **Database**: MongoDB / MySQL / (your database)
+- **Frontend**: React
+- **Backend**: https://store-api.softclub.tj
 
-## 🚀 Getting Started
+## 🖼️ Picture of Web-Application
+![image](https://github.com/user-attachments/assets/0d48906b-0f13-47c0-93a0-f12848d05fbf)
