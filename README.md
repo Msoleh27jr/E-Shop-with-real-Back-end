@@ -4,7 +4,7 @@ This project is a modern internet shop (e-commerce website) built with a real ba
 
 ## 🔗 Live Demo
 
-👉 [https://e-shop-sand-three.vercel.app/](https://your-live-site-link.com)  
+👉 [Click here to watch]([https://your-live-site-link.com](https://e-shop-sand-three.vercel.app/))  
 *Replace this link with your deployed site URL.*
 
 ## ✨ Features
