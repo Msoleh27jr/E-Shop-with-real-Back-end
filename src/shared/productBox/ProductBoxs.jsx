@@ -16,15 +16,27 @@ import {
 } from "../../features/getProducts/getProduct";
 import { API } from "../../features/getProducts/getProduct";
 import { Link } from "react-router";
+import { toast } from "sonner";
 
 const ProductBoxs = () => {
   const cartToken = localStorage.getItem("accaunt");
   const data = useSelector((state) => state.todolist.data);
-  const like = useSelector(state => state.todolist.wishlist)
+  const like = useSelector((state) => state.todolist.wishlist);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(GetPraducData());
   }, [dispatch]);
+  const showToast = () => {
+    toast.error(
+      <div>
+        First login —{" "}
+        <Link to="/signUp" className="text-blue-400 underline">
+          Login
+        </Link>
+      </div>,
+      { autoClose: 3000 }
+    );
+  };
 
   return (
     <div className="h-[500px] my-10 w-[90%] m-auto md:w-[100%]">
@@ -85,11 +97,17 @@ const ProductBoxs = () => {
                       stroke="currentColor"
                       className="size-6 active:text-yellow-600 rounded-[3px]"
                       onClick={() => {
-                        dispatch(setWishList(e))
+                        dispatch(setWishList(e));
                         console.log(e);
-                        
                       }}
-                      style={{backgroundColor : like?.find((el)=> e.id == el.id) ? "green" : "white", color : like?.find((el)=> e.id == el.id) ? "white" : "black"}}
+                      style={{
+                        backgroundColor: like?.find((el) => e.id == el.id)
+                          ? "green"
+                          : "white",
+                        color: like?.find((el) => e.id == el.id)
+                          ? "white"
+                          : "black",
+                      }}
                     >
                       <path
                         strokeLinecap="round"
@@ -120,8 +138,11 @@ const ProductBoxs = () => {
                     </Link>
                   </div>
                   {cartToken == "" || cartToken == null ? (
-                    <button className="w-[100%] bg-black text-white hidden group-hover:block py-2">
-                      <Link to={"/signup"}>Add To Cart</Link>
+                    <button
+                      className="w-[100%] bg-black text-white hidden group-hover:block py-2"
+                      onClick={() => {showToast()}}
+                    >
+                      Add To Cart
                     </button>
                   ) : (
                     <button
